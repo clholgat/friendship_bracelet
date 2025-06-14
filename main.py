@@ -3,6 +3,10 @@ import os
 from PIL import Image
 
 def createImage(message: str, characters: str, output: str):
+    if not os.path.exists(output):
+        print(f"Output '{output}' does not exist, creating")
+        os.makedirs(output)
+
     images = []
     for character in message:
         path = os.path.join(characters, f"{character}.png")
